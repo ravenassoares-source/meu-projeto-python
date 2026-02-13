@@ -1,5 +1,6 @@
 import time
 from avl import AVL
+from avl import separar_palavras
 
 class IndiceRemissivoAVL:
     def __init__(self):
