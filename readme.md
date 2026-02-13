@@ -1,3 +1,8 @@
+------Índice Remissivo usando AVL
+Vinícius Gabriel Dias - 12111GIN045
+Ravena Sarmento Soares - 12211GIN040
+------
+
 ------ Introdução
 O presente trabalho tem como objetivo o desenvolvimento de um índice remissivo automático, capaz de identificar e organizar as palavras presentes em um arquivo texto, indicando as respectivas linhas em que cada termo ocorre. Para garantir eficiência nas operações de inserção, remoção e busca, foi adotada a estrutura de dados árvore AVL, uma variação da árvore binária de busca que procura manter seu balanceamento automático.
 A solução foi projetada de forma a processar o texto linha por linha, extrair as palavras válidas e inseri-las na árvore AVL, fazendo associação de cada palavra a uma lista de linhas. Dessa forma, é obtido um índice em ordem alfabética, trazendo eficiência mesmo para arquivos extensos.
@@ -48,24 +53,58 @@ Além disso, essa classe disponibiliza métodos para busca aproximada, cálculo 
 
 ------ Exemplos de Uso
 Considere o seguinte trecho de texto como entrada:
-"O rato roeu a roupa do rei de Roma."
+"A família deu conta, então, do que o pai antes anunciara: Sombrinha, afinal das contas, sempre se confirmava regredindo.
+De dia para dia ela ia ficando sempre menorzita. Não havia que iludir — as roupas 14 iam sobrando, o leito ia crescendo."
+
+O arquivo "indice" criado, retorna:
+Índice Remissivo:
 
 a: 1
-de: 1
+afinal: 1
+antes: 1
+anunciara: 1
+as: 2
+confirmava: 1
+conta: 1
+contas: 1
+crescendo: 2
+das: 1
+de: 2
+deu: 1
+dia: 2
 do: 1
-o: 1
-rato: 1
-rei: 1
-roma: 1
-roeu: 1
-roupa: 1
-A busca aproximada pelo prefixo "ro" retorna:
-['roma', 'roeu', 'roupa']
-Já a função de palavra mais frequente identifica o termo com maior número de ocorrências no texto.
+ela: 2
+então: 1
+família: 1
+ficando: 2
+havia: 2
+ia: 2
+iam: 2
+iludir: 2
+leito: 2
+menorzita: 2
+não: 2
+o: 1,2
+pai: 1
+para: 2
+que: 1,2
+regredindo: 1
+roupas: 2
+se: 1
+sempre: 1,2
+sobrando: 2
+sombrinha: 1
 
-Neste segundo exemplo, considere este trecho do código:
+Total de palavras: 40
+Palavras distintas: 35
+Palavras descartadas (repetidas): 5
+Tempo de construção: 0.0005s
+Total de rotações AVL: 30
 
-indice.remove_palavra("roma", 1)
-indice.gerar_arquivo_indice("indice_atualizado.txt")
+A busca aproximada pelo prefixo "so" e pela palavra "sombrinha" retorna:
 
-Aqui é realizada a remoção da palavra “roma” associada à linha 1. Caso essa seja a única ocorrência da palavra, o nó correspondente é removido da árvore AVL. Após a remoção, o índice é regenerado, refletindo imediatamente a modificação realizada. Esse procedimento demonstra a capacidade dinâmica da estrutura, permitindo atualizações eficientes sem necessidade de reconstruir todo o índice.
+Valor do ME para 'sombrinha': 0
+Palavra encontrada. ME = 0(árvore balanceada)
+Busca aproximada: ['sobrando', 'sombrinha']
+Palavra mais frequente: o
+
